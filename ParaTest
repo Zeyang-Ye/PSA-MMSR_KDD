@@ -1,0 +1,12 @@
+#!/bin/bash
+#PBS -l nodes=4:ppn=24,walltime=02:00:00
+#PBS -N Paratest
+#PBS -q short
+
+module load shared
+module load mvapich2/gcc/64/2.1
+module load blas/gcc/64/3.5.0
+
+cd $PBS_O_WORKDIR
+
+mpirun ./para.x >ParaTestResult.txt
